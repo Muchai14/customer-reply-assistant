@@ -11,9 +11,27 @@ The demo uses **Northstar Demo Store**, an entirely fictional shop. Its 12 FAQs 
 3. Edit the draft and explicitly save the reviewed reply.
 4. Browse saved history and open individual records.
 
-If no FAQ matches, the page explains this and allows a manually written reply. Draft generation does not save a record. Saved replies persist in SQLite across restarts. Nothing is sent to customers, and the application cannot process refunds or change orders.
+If no FAQ matches, the page explains this and allows a manually written reply. Draft generation does not save a record. Saved replies persist across restarts using SQLite locally or Neon PostgreSQL in the hosted demo. Nothing is sent to customers, and the application cannot process refunds or change orders.
 
 The dark blue frontend is connected to a FastAPI backend. Matching uses deterministic keyword phrases and a fixed reply template, not a language model. AI tools assisted development; the application needs no external AI API key.
+
+## Why save replies?
+
+Saving lets customer service staff revisit previous responses and use them as references when handling similar questions. It also demonstrates the complete application workflow: submit from the frontend, validate in the backend, store in a database, and retrieve the record later.
+
+Each explicit save stores the customer question, final edited reply, FAQ source ID (or null for a manual reply), record ID, and creation time. The current app does not store the original unedited draft, a policy-version snapshot, or an independent approval status. Clicking Save records a response; it does not verify that the response is correct or send it to a customer.
+
+## Future AI-agent use of saved replies
+
+Saved replies provide a foundation for future AI-agent features, such as retrieving reviewed responses and evaluating answer quality. Possible extensions include:
+
+- Retrieve approved answers to similar questions as reference material for a new draft.
+- Identify recurring questions and gaps in the FAQ knowledge base.
+- Build evaluation cases from verified question-and-answer pairs to check a future agent's accuracy and policy compliance.
+
+**These are future possibilities, not current features.** The current version generates drafts only from the bundled FAQ file. It does not retrieve saved replies during generation, train a model, or learn automatically from its history.
+
+Before using history as an agent knowledge source, add explicit approval and correctness labels, policy versions, and the original draft alongside the final reply. Review records for accuracy and outdated policies. The hosted demo has shared history and no authentication, so a saved record is not automatically trustworthy. Use fictional content here; any future real-business dataset would need authorized use and removal of customer personal information before reuse.
 
 ## Current status
 
