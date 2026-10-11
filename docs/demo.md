@@ -1,8 +1,13 @@
-# Module 5 demonstration
+# Agent Extension Pack — Demo and Evidence
 
-This session applies the reusable workflow to the actual request-body-limit API
-change (8a70763..4fca53c) and packages the review capability for reuse. The change
-was already merged; this is a retrospective demonstration, not a new feature.
+This page shows how the project’s coding-agent tools were used: a reusable review
+workflow, a separate reviewer subagent, an FAQ MCP tool, and a commit guardrail.
+It provides evidence for the Module 5 Agent Extension Pack assignment. These are
+development tools; the customer-facing app demo is available at
+[Customer Reply Assistant](https://customer-reply-assistant.onrender.com/).
+
+The review uses the existing request-body-limit API change (8a70763..4fca53c).
+That change was already merged; this demonstration does not add a new app feature.
 
 | Course demo step | Actual observation | Evidence |
 | --- | --- | --- |

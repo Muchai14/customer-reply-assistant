@@ -202,9 +202,9 @@ Gitleaks findings in the scanned tracked files and fetched Git history. The
 repository remains private; owner review and final submission checks are still
 required. This scan is not a guarantee that all sensitive information is absent.
 
-## Module 5 demo
+## Agent extension pack: demo and evidence
 
-The [six-step demonstration](docs/demo.md) includes a real separate policy-review
+The [Agent Extension Pack — Demo and Evidence](docs/demo.md) includes a real separate policy-review
 subagent, a validated [plugin package](plugins/customer-reply-review/README.md),
 MCP tool calls, and an actual blocking Git hook. The student still needs to
 review the final diff; desktop plugin installation is not claimed.

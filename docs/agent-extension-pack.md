@@ -76,11 +76,11 @@ The scanner blocks selected GitHub-token, AWS access-key, and private-key patter
 4. In a disposable Git repository, stage a synthetic blocked pattern and confirm the hook stops the commit; never use a real credential.
 5. Record the demonstrated results and outstanding limitations.
 
-The [recorded demonstration](extension-demo.md) verifies the server through the official MCP SDK and activates the real hook in a disposable repository. This assistant also applied the reviewer instructions as a manual review prompt. The earlier demonstration did not use a separate reviewer. The newer Module 5 demo below records an actual separate subagent; permanent desktop MCP registration and project-wide hook installation are still not claimed.
+The [recorded demonstration](extension-demo.md) verifies the server through the official MCP SDK and activates the real hook in a disposable repository. This assistant also applied the reviewer instructions as a manual review prompt. The earlier demonstration did not use a separate reviewer. The newer agent extension pack demo below records an actual separate subagent; permanent desktop MCP registration and project-wide hook installation are still not claimed.
 
 ## Module 5 completion update
 
 A real separate reviewer subagent has now run, and a validated plugin package
-is included. See [the six-step demo](demo.md) and actual reviewer output. This
+is included. See [Agent Extension Pack — Demo and Evidence](demo.md) and actual reviewer output. This
 supersedes the earlier missing-subagent status; the earlier manual review remains
 accurately labeled. The student final-diff review remains pending.
