@@ -59,3 +59,9 @@ References:
 - https://render.com/docs/free
 - https://render.com/docs/blueprint-spec
 - https://neon.com/docs/connect/connect-from-any-app
+
+## Request-limit release
+
+PR #1 merged as ea7ef30; merged-code CI run 38107253673 passed. Public HTTPS
+checks on October 11, 2026 UTC verified the new 413 response, normal return-policy
+drafts, and retained reply #1. See [release evidence](evidence/pr-001-release.json).

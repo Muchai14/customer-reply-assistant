@@ -55,6 +55,10 @@ the request-limit code. No dependency change was made in this PR.
 
 ## Release status
 
-Draft PR for owner review. Not merged or deployed. Independent review, an
+PR #1 was merged with owner authorization as ea7ef30 on October 11, 2026 UTC.
+Merged-code CI run 38107253673 passed. Live HTTPS checks confirmed normal draft
+generation (200), oversized draft rejection (413), and retained saved reply #1.
+See [release evidence](../docs/evidence/pr-001-release.json). This confirms the
+new behavior is deployed; it is not a load test. Independent review, an
 open-source AI review/DevOps tool run if required by the final course rules,
 container image scanning, and the other checklist items remain outstanding.

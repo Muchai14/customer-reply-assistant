@@ -1,0 +1,14 @@
+{
+  "verified_at": "2026-10-11T03:07:38.290344+00:00",
+  "url": "https://customer-reply-assistant.onrender.com",
+  "pr": "https://github.com/Muchai14/customer-reply-assistant/pull/1",
+  "merged_commit": "ea7ef3093dafea7e195405098d6e4c9c0af4a67c",
+  "ci_run": "https://github.com/Muchai14/customer-reply-assistant/actions/runs/38107253673",
+  "checks": {
+    "live_openapi_413": true,
+    "normal_draft_status": 200,
+    "oversized_draft_status": 413,
+    "saved_reply_1_retained": true
+  },
+  "method": "HTTPS requests to public app; no new saved records, no load test"
+}
