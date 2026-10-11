@@ -42,4 +42,4 @@ The CI workflow installs dependencies, runs Python and Node tests, then builds a
 
 ## Deployment boundary
 
-No cloud host is configured. A deployment must provide persistent storage at `DB_PATH`, route traffic to the app, and run only after successful verification. Authentication and multi-user isolation are outside the current demo. No horizontal scaling or multi-instance SQLite design has been implemented.
+Render Free is configured in render.yaml; live provisioning is pending. DATABASE_URL selects the PostgreSQL repository for Neon Free, while local runs can retain SQLite. A deployment must provide persistent storage at `DB_PATH`, route traffic to the app, and run only after successful verification. Authentication and multi-user isolation are outside the current demo. No horizontal scaling or multi-instance SQLite design has been implemented.

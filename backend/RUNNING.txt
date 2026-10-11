@@ -119,3 +119,9 @@ New store FAQs use IDs faq-101 through faq-112. Earlier market-data FAQs used
 faq-001 through faq-012; those IDs are not reused, so old saved source references
 are not silently reassigned to unrelated store policies. Existing saved replies
 remain in history. Restart the server or rebuild Docker to load the new FAQs.
+
+Hosted PostgreSQL
+-----------------
+DATABASE_URL selects PostgreSQL; DB_PATH remains the local SQLite option.
+Render requires DATABASE_URL to prevent accidental ephemeral storage.
+See docs/deployment.md for free hosting and PostgreSQL test instructions.

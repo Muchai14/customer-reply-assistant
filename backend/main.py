@@ -11,6 +11,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 from backend.database import ReplyStore
+from backend.postgres import PostgresReplyStore
 from backend.matcher import load_faqs, match_faq
 from backend.models import (
     DraftRequest, DraftResult, MatchedDraft, Source, UnmatchedDraft,
@@ -21,13 +22,22 @@ from backend.models import (
 DEFAULT_DB_PATH = Path(__file__).resolve().parent / "data" / "replies.db"
 
 
-def create_app(database_path: Optional[Path] = None) -> FastAPI:
+def create_app(database_path: Optional[Path] = None, database_url: Optional[str] = None) -> FastAPI:
     """Create an isolated application; tests supply their own temporary database."""
     @asynccontextmanager
     async def lifespan(app: FastAPI):
         app.state.faqs = load_faqs()
         path = database_path if database_path is not None else Path(os.environ.get("DB_PATH", str(DEFAULT_DB_PATH)))
-        app.state.store = ReplyStore(path)
+        url = database_url if database_url is not None else os.environ.get("DATABASE_URL")
+        # Explicit file paths keep tests isolated even when DATABASE_URL is set.
+        if database_path is not None:
+            app.state.store = ReplyStore(path)
+        elif url:
+            app.state.store = PostgresReplyStore(url)
+        elif os.environ.get("RENDER"):
+            raise RuntimeError("Set DATABASE_URL for persistent storage on Render Free.")
+        else:
+            app.state.store = ReplyStore(path)
         app.state.store.initialize()
         yield
 

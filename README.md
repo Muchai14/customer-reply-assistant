@@ -139,8 +139,12 @@ The project owner selected scope, requested a simpler implementation without pai
 - This is a single-user fictional demo without login or per-user history isolation. Do not enter personal customer data.
 - Each successful save creates a new record. The UI blocks identical repeated saves, but the API is not idempotent; check history before retrying after a lost response.
 - FAQs load at startup. Restart or rebuild after changing them. Old market-data FAQ IDs are not reused by the store dataset.
-- No cloud URL or automatic deployment exists. SQLite deployment requires persistent storage. Hosting and deployment instructions are still pending.
+- No verified cloud URL exists yet. [Render Free and Neon setup](docs/deployment.md) is prepared, with PostgreSQL selected by DATABASE_URL. Local development still supports SQLite.
 - The [first CI run](https://github.com/Muchai14/customer-reply-assistant/actions/runs/38104060196) passed, including the [CI workflow](.github/workflows/ci.yml) test and Docker jobs. See [CI instructions](CI.txt).
 - The [extension pack](docs/agent-extension-pack.md) now includes a workflow, specialist definition, read-only MCP server, guardrail, and permission notes. Client activation and a reviewer demonstration are pending. Local security scans, operational diagnosis, and the AI tool/data policy are recorded in the [security report](security/audit-report.md). Actual PR audit output and hosted/deployment verification remain pending.
 
 The course rubric is a draft. Confirm final requirements, the October 26 submission deadline, and peer-review rules with the course before submitting.
+
+## Free hosting preparation
+
+[Render Free with Neon Free](docs/deployment.md) keeps cloud history in PostgreSQL. Set DATABASE_URL in Render; never commit it. Local SQLite behavior is preserved. Two real PostgreSQL integration tests run in CI; locally they skip without TEST_POSTGRES_URL. Deployment is not complete until a live URL and persistence are verified.

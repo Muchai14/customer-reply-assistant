@@ -1,0 +1,16 @@
+# Free web service only. Create Neon Free separately; no paid disk/database.
+services:
+  - type: web
+    name: customer-reply-assistant
+    runtime: docker
+    plan: free
+    region: oregon
+    branch: main
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/replies?limit=1
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: PORT
+        value: '8000'
+      - key: DATABASE_URL
+        sync: false
