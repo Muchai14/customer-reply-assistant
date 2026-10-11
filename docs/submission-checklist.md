@@ -16,7 +16,7 @@ This checklist maps the supplied 2026 draft rubric to current evidence. It does 
 | 10 Deployment | [Live Render demo](https://customer-reply-assistant.onrender.com/) and deployment notes | Final owner review |
 | 11 CI/CD | GitHub Actions test/build workflow | CI passed; automatic Render deployment after checks and retained history verified |
 | 12 Agent extension pack | Instructions, workflow, specialist definition, tested MCP subprocess and guardrail, permission docs | Client activation and independent reviewer/hook demonstration |
-| 13 Security audit and operations | Bandit/pip-audit reports, remediation, extension notes, storage diagnosis, AI tool/data policy | Actual PR audit output and any course-required open-source AI tool runs |
+| 13 Security audit and operations | Bandit/pip-audit reports, remediation, extension notes, storage diagnosis, AI tool/data policy | [PR #1 audit](../security/pr-audit-001.md) recorded as AI self-review; independent review and any course-required open-source AI tool runs remain |
 | 14 Reproducibility | Local run/test instructions, Docker and CI notes | Clean-checkout and end-to-end deployment verification |
 | Peer reviews | No evidence yet | Complete required reviews under final cohort rules |
 

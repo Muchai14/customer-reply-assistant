@@ -76,3 +76,11 @@ to CI, and created render.yaml with checksPass deployment gating. Credentials we
 entered through the provider UI and were not committed. The app deployed on the
 Free plan; browser checks covered the ecommerce draft/edit/save/history/no-match
 workflow. No paid model API or hosting upgrade was enabled.
+
+## Request-body hardening and PR audit
+
+The owner asked for the next project step after free deployment. Codex reviewed
+the API boundary, reproduced unbounded JSON whitespace buffering in temporary
+databases, added a 96 KiB actual-byte limit and four tests, and opened draft PR #1.
+The same agent reviewed its diff; this is explicitly labeled self-review in
+security/pr-audit-001.md. No independent human approval is claimed.
