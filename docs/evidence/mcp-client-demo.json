@@ -1,0 +1,69 @@
+{
+  "observed_at": "2026-10-11T03:11:56.958207+00:00",
+  "client": "official MCP Python SDK",
+  "version": "1.30.0",
+  "calls": [
+    {
+      "tool": "search_faq",
+      "arguments": {
+        "question": "What is your return policy?"
+      },
+      "result": {
+        "matched": true,
+        "faq": {
+          "id": "faq-101",
+          "title": "Return Policy",
+          "category": "Returns and refunds",
+          "keywords": [
+            "return policy",
+            "returns policy",
+            "return window",
+            "eligible for return",
+            "returns"
+          ],
+          "answer": "At Northstar Demo Store, unused items in their original packaging can be requested for return within 30 days of delivery. Final-sale items are excluded. Keep your order number and proof of purchase ready. These are fictional demo rules; a support reviewer confirms eligibility."
+        },
+        "fictional": true
+      }
+    },
+    {
+      "tool": "get_faq",
+      "arguments": {
+        "faq_id": "faq-101"
+      },
+      "result": {
+        "faq": {
+          "id": "faq-101",
+          "title": "Return Policy",
+          "category": "Returns and refunds",
+          "keywords": [
+            "return policy",
+            "returns policy",
+            "return window",
+            "eligible for return",
+            "returns"
+          ],
+          "answer": "At Northstar Demo Store, unused items in their original packaging can be requested for return within 30 days of delivery. Final-sale items are excluded. Keep your order number and proof of purchase ready. These are fictional demo rules; a support reviewer confirms eligibility."
+        },
+        "fictional": true
+      }
+    },
+    {
+      "tool": "search_faq",
+      "arguments": {
+        "question": "What is the weather?"
+      },
+      "result": {
+        "matched": false,
+        "faq": null,
+        "fictional": true
+      }
+    }
+  ],
+  "protocol": "2025-06-18",
+  "tools": [
+    "search_faq",
+    "get_faq"
+  ],
+  "invalid_path_rejected": true
+}

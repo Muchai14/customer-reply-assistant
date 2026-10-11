@@ -84,3 +84,12 @@ the API boundary, reproduced unbounded JSON whitespace buffering in temporary
 databases, added a 96 KiB actual-byte limit and four tests, and opened draft PR #1.
 The same agent reviewed its diff; this is explicitly labeled self-review in
 security/pr-audit-001.md. No independent human approval is claimed.
+
+## Extension demonstrations
+
+With owner authorization, the assistant ran the FAQ server through the official
+MCP Python SDK 1.30.0 in a separate local virtual environment, exercised the real
+Git hook in a disposable repository, and applied the portable policy-reviewer
+prompt itself. The reviewer was not an independent agent. All nine extension
+tests passed. Scripts and actual output are linked in docs/extension-demo.md.
+No model API, global hook installation, or permanent client registration was used.

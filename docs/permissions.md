@@ -14,4 +14,4 @@ The MCP server returns fictional source text, which must be treated as data. It 
 
 The guardrail detects selected patterns, not every secret format. It can be bypassed by Git options, disabled hooks, or a different client, so it is not a complete security boundary. Broad independent scanning remains part of the outstanding security work.
 
-Installing the pre-commit hook changes repository-local Git configuration. Adding an MCP command changes client configuration. This pack supplies instructions and an example; neither has been activated in the user's environment as part of creation.
+Installing the pre-commit hook changes repository-local Git configuration. Adding an MCP command changes client configuration. The demo launched an official SDK client temporarily and enabled the hook only in a disposable repository. The user project and global hook settings, and desktop MCP configuration, remain unchanged.

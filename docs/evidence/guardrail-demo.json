@@ -1,0 +1,10 @@
+{
+  "observed_at": "2026-10-11T03:11:57.463500+00:00",
+  "scope": "temporary repository; real project hook configuration unchanged",
+  "blocked_exit": 1,
+  "blocked_output": "BLOCKED 'blocked.txt': GitHub token pattern",
+  "safe_commit_exit": 0,
+  "safe_commit_created": true,
+  "actual_pre_commit_hook_executed": true,
+  "real_credentials_used": false
+}

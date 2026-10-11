@@ -17,7 +17,7 @@ The dark blue frontend is connected to a FastAPI backend. Matching uses determin
 
 ## Current status
 
-The app is live at [Customer Reply Assistant](https://customer-reply-assistant.onrender.com/) on Render Free with Neon Free PostgreSQL storage. Local development supports SQLite. Backend/frontend tests, security gates, Docker build/startup, and the container smoke test passed in GitHub Actions. **Docker volume recreation testing, extension-client activation and demonstrations, and remaining audit artifacts are unfinished.** This is not yet a submission-ready project.
+The app is live at [Customer Reply Assistant](https://customer-reply-assistant.onrender.com/) on Render Free with Neon Free PostgreSQL storage. Local development supports SQLite. Backend/frontend tests, security gates, Docker build/startup, and the container smoke test passed in GitHub Actions. **Docker volume recreation testing, independent review, and remaining audit artifacts are unfinished.** This is not yet a submission-ready project.
 
 See the [submission checklist](docs/submission-checklist.md) for the full draft-rubric mapping.
 
@@ -141,7 +141,7 @@ The project owner selected scope, requested a simpler implementation without pai
 - FAQs load at startup. Restart or rebuild after changing them. Old market-data FAQ IDs are not reused by the store dataset.
 - [Live demo](https://customer-reply-assistant.onrender.com/): Render Free with Neon Free PostgreSQL. See [deployment instructions](docs/deployment.md). The first request after inactivity can be slow.
 - The [first CI run](https://github.com/Muchai14/customer-reply-assistant/actions/runs/38104060196) passed, including the [CI workflow](.github/workflows/ci.yml) test and Docker jobs. See [CI instructions](CI.txt).
-- The [extension pack](docs/agent-extension-pack.md) now includes a workflow, specialist definition, read-only MCP server, guardrail, and permission notes. Client activation and a reviewer demonstration are pending. Local security scans, operational diagnosis, and the AI tool/data policy are recorded in the [security report](security/audit-report.md). Actual PR audit output remains pending.
+- The [extension pack](docs/agent-extension-pack.md) now includes a workflow, specialist definition, read-only MCP server, guardrail, and permission notes. [Demonstrations](docs/extension-demo.md) cover official SDK client calls, a real hook in a disposable repository, and a same-assistant reviewer prompt run. Permanent desktop activation and independent review are not claimed. Local security scans, operational diagnosis, and the AI tool/data policy are recorded in the [security report](security/audit-report.md). The scoped [PR #1 audit](security/pr-audit-001.md) is recorded as AI self-review.
 
 The course rubric is a draft. Confirm final requirements, the October 26 submission deadline, and peer-review rules with the course before submitting.
 

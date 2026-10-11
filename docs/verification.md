@@ -22,7 +22,7 @@ On October 10, 2026 (PDT), the deployed ecommerce browser flow passed: return-po
 - Fresh-checkout installation on another machine.
 - Docker persistence across container recreation; build, startup, and health checks passed on GitHub.
 - Actual PR audit output, image scans, and deployment review. Local Bandit/pip-audit reports, extension notes, and a storage diagnosis are now saved in security/ and ops/.
-- MCP-client interoperability, specialist review execution, and hook activation.
+- Independent specialist review and optional permanent desktop MCP/project-hook activation. Official SDK interoperability and disposable-hook activation are demonstrated in extension-demo.md.
 - Independent human code/policy review and required peer reviews.
 
 ## Reproduce

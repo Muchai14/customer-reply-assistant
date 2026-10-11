@@ -1,0 +1,2 @@
+# Optional isolated demonstration client; not an application dependency.
+mcp==1.30.0

@@ -1,0 +1,14 @@
+[
+  {
+    "question": "What is your return policy?",
+    "faq_id": "faq-101"
+  },
+  {
+    "question": "What is the weather?",
+    "faq_id": null
+  },
+  {
+    "question": "I do not need the return policy. What is the weather?",
+    "faq_id": "faq-101"
+  }
+]

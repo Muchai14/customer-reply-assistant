@@ -41,7 +41,7 @@ Tools:
 - `search_faq` accepts `{"question":"What is your return policy?"}` and returns one candidate FAQ or no match.
 - `get_faq` accepts `{"faq_id":"faq-101"}` and returns that FAQ or a tool error when not found.
 
-The server loads fixed local data at startup. It cannot read history, issue refunds, open arbitrary files, or contact services. Restart after FAQ edits. This is a small educational implementation of the tools subset, not a fully certified MCP implementation; real-client interoperability still needs verification.
+The server loads fixed local data at startup. It cannot read history, issue refunds, open arbitrary files, or contact services. Restart after FAQ edits. This is a small educational implementation of the tools subset, not a fully certified MCP implementation; interoperability with the official Python SDK 1.30.0 is demonstrated for discovery and these calls; see [the demo](extension-demo.md).
 
 Protocol references: [stdio transport](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports), [lifecycle](https://modelcontextprotocol.io/specification/2025-06-18/basic/lifecycle), and [tools](https://modelcontextprotocol.io/specification/2025-06-18/server/tools).
 
@@ -75,4 +75,4 @@ The scanner blocks selected GitHub-token, AWS access-key, and private-key patter
 4. In a disposable Git repository, stage a synthetic blocked pattern and confirm the hook stops the commit; never use a real credential.
 5. Record the demonstrated results and outstanding limitations.
 
-The specialist definition is provided but has not been executed as an independent agent. The MCP client and Git hook have not been activated. Tests verify the protocol subprocess and scanner behavior locally; client interoperability and a complete owner-run demonstration remain pending.
+The [recorded demonstration](extension-demo.md) verifies the server through the official MCP SDK and activates the real hook in a disposable repository. This assistant also applied the reviewer instructions as a manual review prompt. No independent reviewer agent, permanent desktop MCP registration, or project-wide hook installation is claimed.

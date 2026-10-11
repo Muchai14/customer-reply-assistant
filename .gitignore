@@ -9,3 +9,5 @@ __pycache__/
 !.env.example
 !.env.sample
 .DS_Store
+
+.venv-extension-demo/
