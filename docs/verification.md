@@ -15,14 +15,12 @@ These counts describe the latest combined application and extension test run. Th
 
 The actual browser demonstrated question input, source-backed draft generation, editing, saving, opening a history record, no-match handling, and retained history after page reload. Dark blue styling was inspected, and desktop/mobile DOM width checks showed no horizontal overflow at 1280 and 390 pixels.
 
-Browser interaction checks were performed on the earlier market-data scenario. The store-data replacement preserved the UI implementation and passed automated tests, but a new complete browser check of the ecommerce scenario has not yet been recorded. A standalone headless browser test attempt failed to launch; browser checks instead used the in-app browser. It would be incorrect to report the unexecuted headless script as a passing test.
+On October 10, 2026 (PDT), the deployed ecommerce browser flow passed: return-policy source faq-101, draft generation, manual editing, saving reply #1, history after reload, opening its details, and an unmatched gift-wrapping question producing manual-reply mode. The deployed dark blue layout was visually inspected. A standalone headless browser test attempt failed to launch; browser checks instead used the in-app browser. It would be incorrect to report the unexecuted headless script as a passing test.
 
 ## Outstanding verification
 
 - Fresh-checkout installation on another machine.
 - Docker persistence across container recreation; build, startup, and health checks passed on GitHub.
-- Automatic cloud deployment after passing checks.
-- Real deployment URL and deployment after passing checks.
 - Actual PR audit output, image scans, and deployment review. Local Bandit/pip-audit reports, extension notes, and a storage diagnosis are now saved in security/ and ops/.
 - MCP-client interoperability, specialist review execution, and hook activation.
 - Independent human code/policy review and required peer reviews.
@@ -34,3 +32,15 @@ Follow test commands in [README](../README.md), Docker checks in [DOCKER.txt](..
 ## Hosted CI evidence
 
 The [first run](https://github.com/Muchai14/customer-reply-assistant/actions/runs/38104060196) passed backend tests, frontend tests, security gates, Docker image build, container startup and health checks, and the HTTP smoke workflow. [Job metadata](evidence/github-ci.json) records the tested commit and job outcomes. This run does not establish cloud deployment or volume persistence across container recreation.
+
+## Render and PostgreSQL evidence
+
+The app is live at https://customer-reply-assistant.onrender.com/ on Render Free
+with Neon Free PostgreSQL. Hosted CI run 38105116418 passed all 49 Python test
+methods (including 2 real PostgreSQL tests), 5 frontend tests, security gates,
+and Docker checks. Deployment details are recorded in deployment.md.
+
+Render automatically deployed commit 6d249ed after CI run 38105424730 passed.
+The dashboard showed Live with trigger Auto-Deploy; the browser retained saved
+reply #1 after reloading against the new deployment. See
+[evidence](evidence/render-deployment.json).

@@ -1,0 +1,34 @@
+{
+  "observed_date_pdt": "2026-10-10",
+  "observation_method": "Render/Neon dashboard and deployed browser UI",
+  "url": "https://customer-reply-assistant.onrender.com/",
+  "render_plan": "Free",
+  "neon_plan": "Free",
+  "render_service_id": "srv-db5f8no473hc73auq1tg",
+  "initial_deploy": {
+    "id": "dep-db5f8o0473hc73auq690",
+    "commit": "cddaad2186c2c87c0ea386b4b470b48207f4813e",
+    "status": "Live",
+    "trigger": "Blueprint"
+  },
+  "automatic_deploy": {
+    "id": "dep-db5fahbbc2fs738neeq0",
+    "commit": "6d249ed44fe796d0bf3b15807d4547c10d20bef3",
+    "status": "Live",
+    "trigger": "Auto-Deploy",
+    "ci_run": "https://github.com/Muchai14/customer-reply-assistant/actions/runs/38105424730"
+  },
+  "passed_checks": [
+    "return policy draft with faq-101",
+    "edit and save synthetic reply #1",
+    "reopen saved reply details",
+    "history after page reload",
+    "unknown gift-wrapping question yields manual reply mode",
+    "saved reply #1 retained after automatic redeployment"
+  ],
+  "limitations": [
+    "free service sleeps when inactive",
+    "shared free quotas apply",
+    "shared synthetic demo history; no authentication"
+  ]
+}

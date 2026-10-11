@@ -32,8 +32,8 @@ Machine-readable evidence: docs/evidence/github-ci.json
 
 Render deploys the main branch using render.yaml with autoDeployTrigger: checksPass.
 GitHub Actions runs validation; Render performs continuous deployment after the
-checks pass. The initial Blueprint deployment is live. A subsequent automatic
-deployment is being verified. See docs/deployment.md for evidence.
+checks pass. The initial Blueprint deployment and a subsequent automatic
+deployment of commit 6d249ed both succeeded; saved cloud history survived. See docs/deployment.md for evidence.
 
 References
 ----------

@@ -66,3 +66,13 @@ and offsets; a fix and regression test brought the suite to 47 Python tests, all
 passing. Five frontend tests also passed. A temporary storage-path fault and
 recovery produced operational evidence. This was not an actual PR audit or an
 independent open-source AI reviewer run. See security/audit-report.md.
+
+## Free cloud deployment
+
+The owner selected Render Free and approved transferring the dedicated Neon
+connection string into Render DATABASE_URL. Added PostgreSQL storage, kept local
+SQLite behavior, required DATABASE_URL on Render, added isolated PostgreSQL tests
+to CI, and created render.yaml with checksPass deployment gating. Credentials were
+entered through the provider UI and were not committed. The app deployed on the
+Free plan; browser checks covered the ecommerce draft/edit/save/history/no-match
+workflow. No paid model API or hosting upgrade was enabled.

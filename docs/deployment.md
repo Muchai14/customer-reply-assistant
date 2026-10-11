@@ -49,8 +49,11 @@ Live URL: https://customer-reply-assistant.onrender.com/
 Service: srv-db5f8no473hc73auq1tg (Docker, Free).
 Initial deploy: dep-db5f8o0473hc73auq690 (Blueprint trigger, Live).
 Browser checks verified FAQ draft generation, editing, saving synthetic reply #1,
-and retained history after a page reload. Automatic redeployment and persistence
-across that redeployment are the remaining deployment checks.
+and retained history after a page reload. Commit 6d249ed then passed CI run
+38105424730 and automatically deployed as dep-db5fahbbc2fs738neeq0. Render showed
+"Deploy succeeded | Live" and trigger "Auto-Deploy". A fresh browser reload after
+that deployment retained synthetic reply #1, verifying cloud storage persistence.
+See evidence/render-deployment.json for the observed identifiers and checks.
 
 References:
 - https://render.com/docs/free

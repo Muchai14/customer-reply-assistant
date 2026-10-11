@@ -147,4 +147,4 @@ The course rubric is a draft. Confirm final requirements, the October 26 submiss
 
 ## Free hosting preparation
 
-[Render Free with Neon Free](docs/deployment.md) keeps cloud history in PostgreSQL. Set DATABASE_URL in Render; never commit it. Local SQLite behavior is preserved. Two real PostgreSQL integration tests run in CI; locally they skip without TEST_POSTGRES_URL. Deployment is not complete until a live URL and persistence are verified.
+[Render Free with Neon Free](docs/deployment.md) keeps cloud history in PostgreSQL. Set DATABASE_URL in Render; never commit it. Local SQLite behavior is preserved. Two real PostgreSQL integration tests run in CI; locally they skip without TEST_POSTGRES_URL. The live URL, automatic deployment after passing CI, and saved history across redeployment are verified in the deployment evidence.
