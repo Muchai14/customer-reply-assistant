@@ -17,7 +17,7 @@ The dark blue frontend is connected to a FastAPI backend. Matching uses determin
 
 ## Current status
 
-The frontend, four API endpoints, SQLite persistence, and automated application tests are implemented. The private GitHub repository and first CI run are verified. Backend/frontend tests, security gates, Docker build/startup, and the container smoke test passed. **Cloud deployment, Docker volume recreation testing, extension-client activation and demonstrations, and remaining audit artifacts are unfinished.** This is not yet a submission-ready project.
+The app is live at [Customer Reply Assistant](https://customer-reply-assistant.onrender.com/) on Render Free with Neon Free PostgreSQL storage. Local development supports SQLite. Backend/frontend tests, security gates, Docker build/startup, and the container smoke test passed in GitHub Actions. **Docker volume recreation testing, extension-client activation and demonstrations, and remaining audit artifacts are unfinished.** This is not yet a submission-ready project.
 
 See the [submission checklist](docs/submission-checklist.md) for the full draft-rubric mapping.
 
@@ -74,7 +74,7 @@ cd frontend
 node --test tests/*.test.js
 ```
 
-The latest local results are **47 Python tests and 5 frontend tests passing**. The Python suite includes 38 application tests and 9 extension tests. Backend tests use temporary databases. Integration tests exercise requests, validation, real SQLite persistence, pagination, and response schemas from the tracked OpenAPI contract. Frontend tests cover state transitions and the centralized API client; they are not automated browser tests.
+The latest local results are **47 Python tests passing, 2 PostgreSQL tests skipped without a database URL, and 5 frontend tests passing**. Hosted CI passes all 49 Python tests, including the two real PostgreSQL tests. Backend tests use temporary databases. Integration tests exercise requests, validation, real SQLite persistence, pagination, and response schemas from the tracked OpenAPI contract. Frontend tests cover state transitions and the centralized API client; they are not automated browser tests.
 
 See [verification details](docs/verification.md) for coverage and limitations.
 
@@ -139,9 +139,9 @@ The project owner selected scope, requested a simpler implementation without pai
 - This is a single-user fictional demo without login or per-user history isolation. Do not enter personal customer data.
 - Each successful save creates a new record. The UI blocks identical repeated saves, but the API is not idempotent; check history before retrying after a lost response.
 - FAQs load at startup. Restart or rebuild after changing them. Old market-data FAQ IDs are not reused by the store dataset.
-- No verified cloud URL exists yet. [Render Free and Neon setup](docs/deployment.md) is prepared, with PostgreSQL selected by DATABASE_URL. Local development still supports SQLite.
+- [Live demo](https://customer-reply-assistant.onrender.com/): Render Free with Neon Free PostgreSQL. See [deployment instructions](docs/deployment.md). The first request after inactivity can be slow.
 - The [first CI run](https://github.com/Muchai14/customer-reply-assistant/actions/runs/38104060196) passed, including the [CI workflow](.github/workflows/ci.yml) test and Docker jobs. See [CI instructions](CI.txt).
-- The [extension pack](docs/agent-extension-pack.md) now includes a workflow, specialist definition, read-only MCP server, guardrail, and permission notes. Client activation and a reviewer demonstration are pending. Local security scans, operational diagnosis, and the AI tool/data policy are recorded in the [security report](security/audit-report.md). Actual PR audit output and hosted/deployment verification remain pending.
+- The [extension pack](docs/agent-extension-pack.md) now includes a workflow, specialist definition, read-only MCP server, guardrail, and permission notes. Client activation and a reviewer demonstration are pending. Local security scans, operational diagnosis, and the AI tool/data policy are recorded in the [security report](security/audit-report.md). Actual PR audit output remains pending.
 
 The course rubric is a draft. Confirm final requirements, the October 26 submission deadline, and peer-review rules with the course before submitting.
 

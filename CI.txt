@@ -30,10 +30,10 @@ check, and the HTTP smoke test. The local Docker engine remains unavailable.
 Run: https://github.com/Muchai14/customer-reply-assistant/actions/runs/38104060196
 Machine-readable evidence: docs/evidence/github-ci.json
 
-This is continuous integration (CI). It does not deploy the app to the cloud.
-Continuous deployment (CD) will require choosing a host and adding a deployment
-step that runs only after these checks pass. The full draft rubric's CI/CD score
-therefore remains unfinished.
+Render deploys the main branch using render.yaml with autoDeployTrigger: checksPass.
+GitHub Actions runs validation; Render performs continuous deployment after the
+checks pass. The initial Blueprint deployment is live. A subsequent automatic
+deployment is being verified. See docs/deployment.md for evidence.
 
 References
 ----------

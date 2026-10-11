@@ -40,9 +40,17 @@ Never point the test environment at a production database.
 
 ## Status
 
-Deployment configuration and PostgreSQL support are prepared. Account setup,
-Neon project creation, Render secret configuration, and a verified live URL are
-still required. A configuration file is not proof of deployment.
+Deployment configuration and PostgreSQL support passed hosted CI at commit
+cddaad2 (run 38105116418), including the real PostgreSQL integration tests,
+security checks, frontend tests, and Docker startup/HTTP smoke check.
+The dedicated customer-reply-assistant Neon project was created on the Free plan.
+Render deployed commit cddaad2 successfully on October 10, 2026 (PDT).
+Live URL: https://customer-reply-assistant.onrender.com/
+Service: srv-db5f8no473hc73auq1tg (Docker, Free).
+Initial deploy: dep-db5f8o0473hc73auq690 (Blueprint trigger, Live).
+Browser checks verified FAQ draft generation, editing, saving synthetic reply #1,
+and retained history after a page reload. Automatic redeployment and persistence
+across that redeployment are the remaining deployment checks.
 
 References:
 - https://render.com/docs/free
