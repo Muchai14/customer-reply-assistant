@@ -38,10 +38,10 @@ All 47 Python tests and 5 frontend tests passed after remediation. A storage fau
 
 ## Remaining gaps
 
-- No GitHub repository or pull request is attached, so actual PR audit output remains pending. This report must not be relabeled as a PR scan.
-- No independent reviewer run, full secret-history scan, container image vulnerability scan, live penetration test, or deployment review has been completed.
-- The app has no authentication or user isolation. Use synthetic content only; public hosting needs an explicit exposure decision and appropriate limits.
-- MCP raw input limits, rate controls, API request-body limits, and save idempotency remain potential hardening work. Current tool scope and permissions are documented separately.
+- Repository and hosted CI now exist. This historical scan report is not itself a PR review; see the separate request-body-limit PR audit for the new hardening change.
+- No independent reviewer run, full secret-history scan, container image vulnerability scan, live penetration test, has been completed. Free deployment and persistence checks are documented in docs/deployment.md.
+- The app has no authentication or user isolation. Use synthetic content only; the hosted demo is public with owner authorization. Request-size limits are prepared in a separate hardening PR; authentication and rate controls remain outside the implemented scope.
+- MCP raw input limits, rate controls, and save idempotency remain potential hardening work. Current tool scope and permissions are documented separately.
 - No open-source AI PR-review or AI DevOps integration has been exercised. If final course rules require particular tools, run those and preserve their actual output.
 
 See [AI tool and data policy](ai-tool-data-policy.md) and [extension notes](agent-extension-notes.md).
