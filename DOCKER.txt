@@ -71,10 +71,10 @@ Docker Compose configuration validation passed with:
 
     docker compose config --quiet
 
-The local Docker client was available, but its engine did not respond and the
-Docker Desktop application could not be found. Image build, container startup,
-health check execution, and volume persistence across container recreation have
-not been verified yet. Existing application tests verify SQLite persistence
+The local Docker engine did not respond. Subsequently, GitHub Actions verified
+image build, container startup, health check execution, and the API smoke test.
+Volume persistence across container recreation remains unverified.
+Hosted evidence: https://github.com/Muchai14/customer-reply-assistant/actions/runs/38104060196 Existing application tests verify SQLite persistence
 outside Docker; they are not a substitute for container checks.
 
 Once the Docker engine is running, finish verification:

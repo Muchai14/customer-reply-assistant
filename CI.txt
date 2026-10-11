@@ -25,8 +25,10 @@ Verification status
 -------------------
 The existing local suite contains 47 passing Python application/extension tests and 5 passing frontend
 tests. The workflow's YAML and smoke-test Python syntax were checked locally.
-The workflow has not run on GitHub yet, and the local Docker engine is unavailable.
-A passing GitHub run is still needed to verify the container build and smoke test.
+The first hosted run passed both jobs, including image build, startup, health
+check, and the HTTP smoke test. The local Docker engine remains unavailable.
+Run: https://github.com/Muchai14/customer-reply-assistant/actions/runs/38104060196
+Machine-readable evidence: docs/evidence/github-ci.json
 
 This is continuous integration (CI). It does not deploy the app to the cloud.
 Continuous deployment (CD) will require choosing a host and adding a deployment

@@ -9,7 +9,7 @@
 - Compose configuration validation with `docker compose config --quiet`.
 - CI YAML structure and smoke-test Python syntax checks.
 
-These counts describe the latest combined application and extension test run. The latest full suite passed on Python 3.12.14 after security updates. Docker and hosted CI still require their own runs.
+These counts describe the latest combined application and extension test run. The latest full suite passed on Python 3.12.14 after security updates. Docker build, startup, and smoke checks subsequently passed on GitHub Actions.
 
 ## Browser observations
 
@@ -20,8 +20,8 @@ Browser interaction checks were performed on the earlier market-data scenario. T
 ## Outstanding verification
 
 - Fresh-checkout installation on another machine.
-- Container build, startup, health check, and persistence across container recreation.
-- First GitHub Actions run, including the HTTP smoke test.
+- Docker persistence across container recreation; build, startup, and health checks passed on GitHub.
+- Automatic cloud deployment after passing checks.
 - Real deployment URL and deployment after passing checks.
 - Actual PR audit output, image scans, and deployment review. Local Bandit/pip-audit reports, extension notes, and a storage diagnosis are now saved in security/ and ops/.
 - MCP-client interoperability, specialist review execution, and hook activation.
@@ -30,3 +30,7 @@ Browser interaction checks were performed on the earlier market-data scenario. T
 ## Reproduce
 
 Follow test commands in [README](../README.md), Docker checks in [DOCKER.txt](../DOCKER.txt), and hosted workflow instructions in [CI.txt](../CI.txt). `ops/smoke_test.py` creates a saved fictional reply and should run against an isolated test instance.
+
+## Hosted CI evidence
+
+The [first run](https://github.com/Muchai14/customer-reply-assistant/actions/runs/38104060196) passed backend tests, frontend tests, security gates, Docker image build, container startup and health checks, and the HTTP smoke workflow. [Job metadata](evidence/github-ci.json) records the tested commit and job outcomes. This run does not establish cloud deployment or volume persistence across container recreation.

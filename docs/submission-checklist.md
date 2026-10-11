@@ -11,10 +11,10 @@ This checklist maps the supplied 2026 draft rubric to current evidence. It does 
 | 5 API contract | Tracked OpenAPI file and response-schema tests | Review final contract alignment |
 | 6 Backend | Four structured endpoints with automated tests | Independent review |
 | 7 Database | SQLite, configurable DB_PATH, temporary test databases, persistence tests | Verify hosted persistent storage |
-| 8 Containerization | Dockerfile, Compose, named volume, run instructions | Run image and verify persistence in Docker |
-| 9 Integration tests | Separate API integration directory and reproduction commands | Hosted/container smoke run |
+| 8 Containerization | Dockerfile, Compose, named volume, run instructions | Verify volume persistence across container recreation |
+| 9 Integration tests | Separate API integration directory and reproduction commands | Hosted/container smoke run passed; independent workflow review pending |
 | 10 Deployment | No deployed URL | Select host and deploy with proof |
-| 11 CI/CD | GitHub Actions test/build workflow | First successful run and automatic deployment after checks |
+| 11 CI/CD | GitHub Actions test/build workflow | First run passed; automatic cloud deployment still needed |
 | 12 Agent extension pack | Instructions, workflow, specialist definition, tested MCP subprocess and guardrail, permission docs | Client activation and independent reviewer/hook demonstration |
 | 13 Security audit and operations | Bandit/pip-audit reports, remediation, extension notes, storage diagnosis, AI tool/data policy | Actual PR audit output and any course-required open-source AI tool runs |
 | 14 Reproducibility | Local run/test instructions, Docker and CI notes | Clean-checkout and end-to-end deployment verification |

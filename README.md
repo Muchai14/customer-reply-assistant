@@ -17,7 +17,7 @@ The dark blue frontend is connected to a FastAPI backend. Matching uses determin
 
 ## Current status
 
-The frontend, four API endpoints, SQLite persistence, and automated application tests are implemented. Docker and GitHub Actions configurations exist. **Cloud deployment, a successful GitHub CI run, container runtime verification, extension-client activation and demonstrations, and required audit artifacts remain unfinished.** This is not yet a submission-ready project.
+The frontend, four API endpoints, SQLite persistence, and automated application tests are implemented. The private GitHub repository and first CI run are verified. Backend/frontend tests, security gates, Docker build/startup, and the container smoke test passed. **Cloud deployment, Docker volume recreation testing, extension-client activation and demonstrations, and remaining audit artifacts are unfinished.** This is not yet a submission-ready project.
 
 See the [submission checklist](docs/submission-checklist.md) for the full draft-rubric mapping.
 
@@ -50,7 +50,7 @@ docker compose up --build -d
 
 Open the same local URL. The `reply-data` named volume stores the SQLite database. `docker compose down` removes the container while retaining this volume; using `--volumes` would also erase its saved data.
 
-Compose configuration validation passed, but container build, startup, and volume persistence have not been verified because the local Docker engine was unavailable. See [Docker instructions](DOCKER.txt) for the remaining verification steps and port configuration.
+Compose validation, image build, startup, health checks, and the HTTP smoke workflow passed on GitHub Actions. Volume persistence across container recreation still needs verification; the local Docker engine was unavailable. See [Docker instructions](DOCKER.txt) for the remaining verification steps and port configuration.
 
 ## Run tests
 
@@ -140,7 +140,7 @@ The project owner selected scope, requested a simpler implementation without pai
 - Each successful save creates a new record. The UI blocks identical repeated saves, but the API is not idempotent; check history before retrying after a lost response.
 - FAQs load at startup. Restart or rebuild after changing them. Old market-data FAQ IDs are not reused by the store dataset.
 - No cloud URL or automatic deployment exists. SQLite deployment requires persistent storage. Hosting and deployment instructions are still pending.
-- The [CI workflow](.github/workflows/ci.yml) has not run on GitHub yet. See [CI instructions](CI.txt).
+- The [first CI run](https://github.com/Muchai14/customer-reply-assistant/actions/runs/38104060196) passed, including the [CI workflow](.github/workflows/ci.yml) test and Docker jobs. See [CI instructions](CI.txt).
 - The [extension pack](docs/agent-extension-pack.md) now includes a workflow, specialist definition, read-only MCP server, guardrail, and permission notes. Client activation and a reviewer demonstration are pending. Local security scans, operational diagnosis, and the AI tool/data policy are recorded in the [security report](security/audit-report.md). Actual PR audit output and hosted/deployment verification remain pending.
 
 The course rubric is a draft. Confirm final requirements, the October 26 submission deadline, and peer-review rules with the course before submitting.
