@@ -1,0 +1,41 @@
+{
+  "observed_at": "2026-10-11T06:51:39.156855+00:00",
+  "commit": "4e844edde520805b46a7556eb22543608442f8e5",
+  "source": "fresh HTTPS GitHub clone",
+  "platform": "Darwin arm64",
+  "python": "3.12.14",
+  "virtual_environment": "new isolated venv; no reused site-packages",
+  "dependency_install": "requirements-dev.txt succeeded",
+  "pip_check": "No broken requirements found",
+  "python_tests": {
+    "total": 53,
+    "passed": 51,
+    "skipped": 2,
+    "reason": "PostgreSQL tests require TEST_POSTGRES_URL; not set for local SQLite reproduction"
+  },
+  "frontend_tests": {
+    "passed": 5
+  },
+  "http_checks": [
+    "HTML and four static assets",
+    "initial history empty",
+    "return policy draft faq-101",
+    "edited reply saved with 201",
+    "history and detail match",
+    "no-match handling",
+    "saved reply retained after server process restart"
+  ],
+  "data_scope": "default SQLite file in disposable clone only; no hosted data accessed",
+  "deviations": [
+    "Used explicit Python 3.12 binary and .venv/bin/python instead of shell activation",
+    "Used a free loopback port instead of 8000 to avoid existing app",
+    "Omitted development --reload for a controlled process restart",
+    "Local Node 24.19.0 satisfies README 18+ requirement; CI uses Node 22"
+  ],
+  "limits": [
+    "Same machine, fresh checkout/environment; not a second machine or OS",
+    "No Docker engine or local PostgreSQL used in this reproduction",
+    "Dependency transitive versions are not fully locked"
+  ],
+  "node": "24.19.0"
+}

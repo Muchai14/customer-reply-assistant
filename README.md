@@ -69,6 +69,8 @@ for reproduction and free-plan limitations. GitHub links require repository acce
 
 Use Python 3.12 to align with the verified dependency set, Docker image, and CI configuration. Earlier Python 3.9 results predate the security dependency update. Initial dependency installation requires internet access.
 
+First check `python3 --version`; it must identify Python 3.12. If your system default differs, use your Python 3.12 executable to create the virtual environment.
+
 From the project directory:
 
 ```bash
@@ -120,7 +122,7 @@ node --test tests/*.test.js
 
 The latest local results are **51 Python tests passing, 2 PostgreSQL tests skipped without a database URL, and 5 frontend tests passing**. The verified merged PR #1 CI run passed all 53 Python tests, including the two real PostgreSQL tests. Backend tests use temporary databases. Integration tests exercise requests, validation, real SQLite persistence, pagination, and response schemas from the tracked OpenAPI contract. Frontend tests cover state transitions and the centralized API client; they are not automated browser tests.
 
-See [verification details](docs/verification.md) for coverage and limitations.
+A [fresh-checkout verification](docs/reproducibility.md) passed installation, tests, the HTTP workflow, and SQLite persistence after restarting the server on macOS. See [verification details](docs/verification.md) for coverage and limitations.
 
 ## API contract
 

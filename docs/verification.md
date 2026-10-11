@@ -2,7 +2,7 @@
 
 ## Passed locally
 
-- 47 Python tests: 13 matcher unit test methods, 25 API integration test methods, and 9 extension test methods. The FAQ sample test includes 15 cases within a single method.
+- Fresh-checkout run: 53 Python methods, 51 passed and 2 PostgreSQL tests skipped without TEST_POSTGRES_URL. This includes four request-body-limit tests added after the earlier 47-test run.
 - 5 Node frontend tests covering save eligibility, changed-question handling, manual reply sources, duplicate-save prevention, request formatting, and errors.
 - API response validation against schemas in the tracked OpenAPI file.
 - SQLite persistence across application recreation, history ordering, pagination, invalid inputs, and parameterized storage of SQL-like text.
@@ -19,9 +19,9 @@ On October 10, 2026 (PDT), the deployed ecommerce browser flow passed: return-po
 
 ## Outstanding verification
 
-- Fresh-checkout installation on another machine.
+- Verification on a second machine/OS. Fresh checkout and new-environment verification on this computer passed; see [reproducibility](reproducibility.md).
 - Docker persistence across container recreation; build, startup, and health checks passed on GitHub.
-- Actual PR audit output, image scans, and deployment review. Local Bandit/pip-audit reports, extension notes, and a storage diagnosis are now saved in security/ and ops/.
+- Container image scanning and independent audit. PR #1 self-review and live deployment checks are recorded; local scan reports, extension notes, and storage diagnosis are saved in security/ and ops/.
 - Independent specialist review and optional permanent desktop MCP/project-hook activation. Official SDK interoperability and disposable-hook activation are demonstrated in extension-demo.md.
 - Independent human code/policy review and required peer reviews.
 

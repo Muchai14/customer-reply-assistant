@@ -17,7 +17,7 @@ This checklist maps the supplied 2026 draft rubric to current evidence. It does 
 | 11 CI/CD | GitHub Actions test/build workflow | CI passed; automatic Render deployment after checks and retained history verified |
 | 12 Agent extension pack | Instructions, workflow, specialist definition, tested MCP subprocess and guardrail, permission docs | SDK client and disposable-hook demonstrations recorded; reviewer prompt applied by same assistant; independent review pending |
 | 13 Security audit and operations | Bandit/pip-audit reports, remediation, extension notes, storage diagnosis, AI tool/data policy | [PR #1 audit](../security/pr-audit-001.md) recorded as AI self-review; independent review and any course-required open-source AI tool runs remain |
-| 14 Reproducibility | Local run/test instructions, Docker and CI notes | Clean-checkout and end-to-end deployment verification |
+| 14 Reproducibility | [Clean checkout](reproducibility.md): install, tests, HTTP workflow, and SQLite restart persistence passed; cloud deployment verified separately | Independent second-machine check and owner review |
 | Peer reviews | No evidence yet | Complete required reviews under final cohort rules |
 
 Extension demonstrations are recorded in docs/extension-demo.md. The reviewer output is explicitly a same-assistant manual prompt run; it is not independent review or proof of permanent desktop-client installation.

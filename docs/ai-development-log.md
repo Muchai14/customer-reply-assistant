@@ -93,3 +93,11 @@ Git hook in a disposable repository, and applied the portable policy-reviewer
 prompt itself. The reviewer was not an independent agent. All nine extension
 tests passed. Scripts and actual output are linked in docs/extension-demo.md.
 No model API, global hook installation, or permanent client registration was used.
+
+## Clean-checkout reproduction
+
+At the owner's request, cloned GitHub commit 4e844ed into a separate directory,
+created a new Python 3.12 environment, installed the documented requirements,
+and ran local tests and an HTTP save/history/restart workflow. No tracked files
+in the clone required edits. Disclosed port, reload, and Node-version differences
+and two skipped PostgreSQL tests in docs/reproducibility.md.
