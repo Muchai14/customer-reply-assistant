@@ -1,0 +1,3 @@
+#!/bin/sh
+# Enable for this repository with: git config --local core.hooksPath .githooks
+exec python3 agent-hooks/check_staged.py

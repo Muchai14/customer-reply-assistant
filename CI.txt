@@ -1,0 +1,39 @@
+Automated checks with GitHub Actions
+===================================
+
+Workflow: .github/workflows/ci.yml
+
+Place this project's contents at the root of a GitHub repository, including the
+hidden .github folder. The workflow runs on pushes and pull requests. It can also
+be started manually using Run workflow in the repository's Actions tab.
+
+Checks
+------
+1. Install Python dependencies and run the backend unit and integration tests.
+2. Run frontend unit tests using Node.js; no npm installation is needed.
+3. Only after the tests pass, validate Docker Compose, build the image, and start
+   the app with a bounded wait for its health check.
+4. Verify the webpage, static assets, and full draft-save-history API flow.
+5. Show container logs on failure and remove temporary CI containers and data.
+
+The smoke test creates a fictional saved reply. Its environment is disposable;
+CI volume cleanup must not be copied to a deployment containing user records.
+No secrets, model API keys, or deployment accounts are needed for these checks.
+The workflow has read-only repository permissions.
+
+Verification status
+-------------------
+The existing local suite contains 47 passing Python application/extension tests and 5 passing frontend
+tests. The workflow's YAML and smoke-test Python syntax were checked locally.
+The workflow has not run on GitHub yet, and the local Docker engine is unavailable.
+A passing GitHub run is still needed to verify the container build and smoke test.
+
+This is continuous integration (CI). It does not deploy the app to the cloud.
+Continuous deployment (CD) will require choosing a host and adding a deployment
+step that runs only after these checks pass. The full draft rubric's CI/CD score
+therefore remains unfinished.
+
+References
+----------
+https://docs.github.com/en/actions/tutorials/build-and-test-code/python
+https://github.com/actions/setup-node

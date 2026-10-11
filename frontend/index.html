@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Customer Reply Assistant</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script type="module" src="/assets/app.js"></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/" aria-label="Customer Reply Assistant home"><span class="mark">r.</span> Reply Assistant</a><span class="badge">NORTHSTAR · DEMO STORE</span></header>
+  <main>
+    <section class="intro"><p class="eyebrow">YOUR SUPPORT WORKSPACE</p><h1>Clear answers.<br><span>A personal touch.</span></h1><p>Turn customer questions into clear, helpful replies.<br>Find a source, make it your own, and save your response.</p></section>
+    <div class="workspace">
+      <section class="card composer" aria-labelledby="compose-title">
+        <div class="section-title"><span class="step">01</span><h2 id="compose-title">Customer question</h2></div>
+        <form id="question-form">
+          <label for="question">What does your customer need help with?</label>
+          <textarea id="question" rows="4" maxlength="1000" required placeholder="For example, what is your return policy?" aria-describedby="question-count"></textarea>
+          <div class="input-meta"><span>Use a fictional customer question.</span><span id="question-count">0 / 1,000</span></div>
+          <div class="examples" aria-label="Example questions"><span>Try a question</span><button type="button" data-question="What is your return policy?">Return policy</button><button type="button" data-question="When will I receive my refund?">Refunds</button><button type="button" data-question="How can I track my order?">Track an order</button></div>
+          <button class="primary" id="generate" type="submit">Generate draft <span aria-hidden="true">↗</span></button>
+        </form>
+        <div class="divider"></div>
+        <div class="section-title"><span class="step">02</span><h2>Review your reply</h2><span id="draft-badge" class="small-badge">AWAITING QUESTION</span></div>
+        <p id="draft-status" class="status" role="status">Your draft and its source will appear here.</p>
+        <details id="source" hidden><summary id="source-title"></summary><p id="source-answer"></p></details>
+        <label for="reply">Reply draft</label>
+        <textarea id="reply" rows="7" maxlength="5000" disabled placeholder="A little context. A clear answer. Your final touch." aria-describedby="reply-count"></textarea>
+        <div class="input-meta"><span>Edit and review before saving.</span><span id="reply-count">0 / 5,000</span></div>
+        <div class="save-row"><p>Saved here. Never sent automatically.</p><button class="primary" type="button" id="save" disabled>Save reply</button></div>
+        <p id="save-status" class="status" role="status"></p>
+      </section>
+      <aside class="card history" aria-labelledby="history-title"><div class="history-heading"><div><p class="eyebrow">YOUR REPLY LIBRARY</p><h2 id="history-title">Saved replies <span id="total">0</span></h2></div><button class="text-button" id="refresh" type="button">Refresh</button></div><p class="muted">Reviewed responses, newest first.</p><p id="history-status" role="status" class="status"></p><ul id="history-list"></ul><div id="history-empty" class="empty" hidden><span class="empty-icon" aria-hidden="true">≡</span><h3>Your first reply belongs here.</h3><p>Save a reviewed draft to start<br>building your reply library.</p></div><nav class="pagination" aria-label="History pages"><button type="button" id="previous" disabled>← Previous</button><span id="page-label">0 replies</span><button type="button" id="next" disabled>Next →</button></nav><div class="library-note"><span aria-hidden="true">↳</span><p>Need a starting point?<br>The demo includes 12 FAQs on returns, shipping, and order support.</p></div></aside>
+    </div>
+    <footer><span>Customer Reply Assistant · Course project</span><span>Template-based drafts. Human-reviewed replies.</span></footer>
+  </main>
+  <dialog id="record-dialog" aria-labelledby="record-title"><div class="dialog-header"><h2 id="record-title">Saved reply</h2><button id="close-dialog" type="button" aria-label="Close saved reply">✕</button></div><p id="record-meta" class="muted"></p><h3>Customer question</h3><p id="record-question" class="record-text"></p><h3>Reviewed reply</h3><p id="record-reply" class="record-text"></p></dialog>
+</body>
+</html>

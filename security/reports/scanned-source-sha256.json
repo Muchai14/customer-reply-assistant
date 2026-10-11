@@ -1,0 +1,11 @@
+{
+  "backend/matcher.py": "73986231ab55a371b84851e0f3c1fc75447d0b31d15c857a9a60e396e03cf5df",
+  "backend/models.py": "ad4b4387e4379576787736a3ea266e158a7481731e94f1da81f2687fd262db77",
+  "backend/database.py": "84869c06ea5551a1b7c921918f9b0b2cca2c48965f307a9e3c2e167c25ae98b4",
+  "backend/__init__.py": "49caea8e2f3260d4e19bcc5399aaa3b95ca71f1344125c65df672a7d7e1bd8f7",
+  "backend/main.py": "16436b9bc163a819ff23985e7318f9771d3b2f4e3cf4c92b2f203d8a54ac80ea",
+  "agent-hooks/check_staged.py": "26a9d45137a6e09481b93f8bdc0d0d70fa6dc6c9b0bc14db8c9890d2404e0e00",
+  "mcp-server/server.py": "568e4ffc52bf6ecf7a49b3231c888381ba10f3a99788b1139048af13c8f1cad0",
+  "requirements.txt": "fe981c9147b5b77a93dc264026d6b002b1ac491717d7d67fd581b8a733bf523b",
+  "requirements-dev.txt": "800f5dadff1b00d4c26a4ce172ea59ef958fe9b02cf9437a1c228f497cf87236"
+}

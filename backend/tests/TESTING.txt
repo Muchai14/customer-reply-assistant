@@ -1,0 +1,33 @@
+Matcher tests
+=============
+
+From the customer-reply-assistant project directory, run:
+
+    python3 -m unittest backend.tests.test_matcher -v
+
+Requires Python 3.9 or newer. No third-party packages or API keys are needed.
+These are unit tests. They do not verify an HTTP API, database, or frontend.
+For API integration tests and their dependencies, see backend/RUNNING.txt.
+
+Matching rules
+--------------
+1. Trim and validate the question (1 to 1,000 characters).
+2. Normalize case and split the question and keywords into word tokens.
+   Punctuation, underscores, and extra whitespace act as separators.
+3. Match whole, contiguous keyword phrases rather than word substrings.
+4. Score each FAQ by the word count of its longest matching phrase.
+5. Select the highest score; resolve ties by ascending FAQ ID.
+6. Return no match when every score is zero.
+
+Known limitations
+-----------------
+This matcher does not understand meaning, negation, spelling mistakes, or
+unlisted paraphrases. For example, "return eligibility policy" does not match
+"return policy" unless that variant is added to the FAQ keywords.
+Broad keywords can also match unrelated questions. Multi-topic questions return
+only one FAQ according to the scoring rules. A match is a suggested source,
+not proof that its answer is relevant. Human review remains necessary.
+
+The 15 sample questions cover all 12 FAQs and three unmatched questions.
+Additional tests cover normalization, word boundaries, ranking, tie-breaking,
+input limits, empty data, and preserving the input dataset.

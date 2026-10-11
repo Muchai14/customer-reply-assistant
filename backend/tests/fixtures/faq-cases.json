@@ -1,0 +1,80 @@
+{
+  "description": "Expected results for fictional ecommerce FAQs, including three unmatched questions.",
+  "cases": [
+    {
+      "id": "case-001",
+      "question": "What is your return policy?",
+      "expected_faq_id": "faq-101"
+    },
+    {
+      "id": "case-002",
+      "question": "How do I return an item?",
+      "expected_faq_id": "faq-102"
+    },
+    {
+      "id": "case-003",
+      "question": "When will I receive my refund?",
+      "expected_faq_id": "faq-103"
+    },
+    {
+      "id": "case-004",
+      "question": "Can I exchange an item?",
+      "expected_faq_id": "faq-104"
+    },
+    {
+      "id": "case-005",
+      "question": "How long does delivery take?",
+      "expected_faq_id": "faq-105"
+    },
+    {
+      "id": "case-006",
+      "question": "How much does shipping cost?",
+      "expected_faq_id": "faq-106"
+    },
+    {
+      "id": "case-007",
+      "question": "How can I track my order?",
+      "expected_faq_id": "faq-107"
+    },
+    {
+      "id": "case-008",
+      "question": "Can I cancel my order?",
+      "expected_faq_id": "faq-108"
+    },
+    {
+      "id": "case-009",
+      "question": "Can I change my shipping address?",
+      "expected_faq_id": "faq-109"
+    },
+    {
+      "id": "case-010",
+      "question": "My item arrived damaged. What should I do?",
+      "expected_faq_id": "faq-110"
+    },
+    {
+      "id": "case-011",
+      "question": "I received the wrong item. What should I do?",
+      "expected_faq_id": "faq-111"
+    },
+    {
+      "id": "case-012",
+      "question": "Do you ship internationally?",
+      "expected_faq_id": "faq-112"
+    },
+    {
+      "id": "case-013",
+      "question": "Please reset my password.",
+      "expected_faq_id": null
+    },
+    {
+      "id": "case-014",
+      "question": "What is the weather tomorrow?",
+      "expected_faq_id": null
+    },
+    {
+      "id": "case-015",
+      "question": "How often is market data updated?",
+      "expected_faq_id": null
+    }
+  ]
+}

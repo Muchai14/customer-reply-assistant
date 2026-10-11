@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    ports:
+      - "127.0.0.1:${APP_PORT:-8000}:8000"
+    environment:
+      DB_PATH: /data/replies.db
+    volumes:
+      - reply-data:/data
+    restart: unless-stopped
+    init: true
+
+volumes:
+  reply-data:

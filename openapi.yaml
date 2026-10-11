@@ -1,0 +1,319 @@
+openapi: 3.1.0
+info:
+  title: Customer Reply Assistant API
+  version: 0.1.0
+  description: |
+    Contract for a single-user educational demo using fictional ecommerce FAQs.
+    Match questions, generate template-based drafts, and save human-reviewed replies.
+    No external AI API is required. Generating a draft does not save a history record.
+    Authentication is outside this demo's scope; use fictional content only.
+servers:
+  - url: http://localhost:8000
+    description: Planned local development server
+tags:
+  - name: Drafts
+  - name: Replies
+paths:
+  /api/drafts:
+    post:
+      tags: [Drafts]
+      operationId: generateDraft
+      summary: Match an FAQ and generate an editable reply draft
+      description: |
+        Use deterministic keyword matching. Resolve equal scores by FAQ ID in
+        ascending order. A question with no match returns HTTP 200, matched false,
+        an empty draft, a null source, and a message requesting manual handling.
+        This operation does not persist the question or draft.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DraftRequest'
+            example:
+              question: What is your return policy?
+      responses:
+        '200':
+          description: Draft result, including cases where no FAQ matches
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DraftResult'
+              examples:
+                matched:
+                  value:
+                    question: What is your return policy?
+                    matched: true
+                    draft: Hello, At Northstar Demo Store, unused items in their original packaging can be requested for return within 30 days of delivery. Final-sale items are excluded. Keep your order number and proof of purchase ready. These are fictional demo rules; a support reviewer confirms eligibility.
+                    source:
+                      id: faq-101
+                      title: Return Policy
+                      answer: At Northstar Demo Store, unused items in their original packaging can be requested for return within 30 days of delivery. Final-sale items are excluded. Keep your order number and proof of purchase ready. These are fictional demo rules; a support reviewer confirms eligibility.
+                    message: null
+                unmatched:
+                  value:
+                    question: Can you change my subscription?
+                    matched: false
+                    draft: ''
+                    source: null
+                    message: No matching FAQ was found. Please provide more information or write a reply manually.
+        '422':
+          $ref: '#/components/responses/ValidationError'
+  /api/replies:
+    post:
+      tags: [Replies]
+      operationId: saveReply
+      summary: Save a human-reviewed reply
+      description: |
+        Save only when the user explicitly selects Save Reply. The backend assigns
+        the ID and UTC timestamp. faq_id must reference an existing FAQ or be null;
+        an unknown FAQ ID produces a validation error. Replies are never sent to customers.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SaveReplyRequest'
+            example:
+              question: What is your return policy?
+              reply: Hello, unused items in original packaging may be requested for return within 30 days of delivery, excluding final-sale items. A reviewer will confirm eligibility.
+              faq_id: faq-101
+      responses:
+        '201':
+          description: Reviewed reply saved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SavedReply'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+    get:
+      tags: [Replies]
+      operationId: listReplies
+      summary: List saved replies, newest first
+      description: |
+        Sort by created_at descending, then ID descending to resolve timestamp ties.
+        total counts all saved replies before pagination. An empty history or an
+        offset beyond the end returns an empty items array.
+      parameters:
+        - name: limit
+          in: query
+          description: Maximum number of records to return
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+        - name: offset
+          in: query
+          description: Number of records to skip
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+      responses:
+        '200':
+          description: Paginated history
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReplyList'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+  /api/replies/{id}:
+    get:
+      tags: [Replies]
+      operationId: getReply
+      summary: Get one saved reply
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+      responses:
+        '200':
+          description: Saved reply found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SavedReply'
+        '404':
+          description: No saved reply exists with this ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundError'
+              example:
+                detail: Reply not found.
+        '422':
+          $ref: '#/components/responses/ValidationError'
+components:
+  responses:
+    ValidationError:
+      description: |
+        Malformed JSON, missing fields, invalid values, or an unknown FAQ ID.
+        Trim question and reply strings before checking length; reject whitespace-only strings.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ValidationError'
+          example:
+            detail:
+              - loc: [body, question]
+                msg: Question must not be blank.
+                type: value_error
+  schemas:
+    Question:
+      type: string
+      minLength: 1
+      maxLength: 1000
+      pattern: '\S'
+      description: Trim surrounding whitespace before validating; persist and return the trimmed value.
+    ReplyText:
+      type: string
+      minLength: 1
+      maxLength: 5000
+      pattern: '\S'
+      description: Human-reviewed reply. Trim surrounding whitespace before validating and saving.
+    FaqId:
+      type: [string, 'null']
+      pattern: '^faq-[0-9]{3}$'
+      description: An existing FAQ ID, or null when the reply has no matched source.
+    DraftRequest:
+      type: object
+      additionalProperties: false
+      required: [question]
+      properties:
+        question:
+          $ref: '#/components/schemas/Question'
+    Source:
+      type: object
+      additionalProperties: false
+      required: [id, title, answer]
+      properties:
+        id:
+          type: string
+          pattern: '^faq-[0-9]{3}$'
+        title:
+          type: string
+          minLength: 1
+        answer:
+          type: string
+          minLength: 1
+    DraftResult:
+      oneOf:
+        - $ref: '#/components/schemas/MatchedDraft'
+        - $ref: '#/components/schemas/UnmatchedDraft'
+    MatchedDraft:
+      type: object
+      additionalProperties: false
+      required: [question, matched, draft, source, message]
+      properties:
+        question:
+          $ref: '#/components/schemas/Question'
+        matched:
+          type: boolean
+          const: true
+        draft:
+          $ref: '#/components/schemas/ReplyText'
+        source:
+          $ref: '#/components/schemas/Source'
+        message:
+          type: 'null'
+    UnmatchedDraft:
+      type: object
+      additionalProperties: false
+      required: [question, matched, draft, source, message]
+      properties:
+        question:
+          $ref: '#/components/schemas/Question'
+        matched:
+          type: boolean
+          const: false
+        draft:
+          type: string
+          const: ''
+        source:
+          type: 'null'
+        message:
+          type: string
+          minLength: 1
+    SaveReplyRequest:
+      type: object
+      additionalProperties: false
+      required: [question, reply, faq_id]
+      properties:
+        question:
+          $ref: '#/components/schemas/Question'
+        reply:
+          $ref: '#/components/schemas/ReplyText'
+        faq_id:
+          $ref: '#/components/schemas/FaqId'
+    SavedReply:
+      type: object
+      additionalProperties: false
+      required: [id, question, reply, faq_id, created_at]
+      properties:
+        id:
+          type: integer
+          minimum: 1
+        question:
+          $ref: '#/components/schemas/Question'
+        reply:
+          $ref: '#/components/schemas/ReplyText'
+        faq_id:
+          $ref: '#/components/schemas/FaqId'
+        created_at:
+          type: string
+          format: date-time
+          pattern: 'Z$'
+          description: Backend-generated UTC timestamp with a Z suffix.
+      example:
+        id: 1
+        question: What is your return policy?
+        reply: Hello, unused items in original packaging may be requested for return within 30 days of delivery, excluding final-sale items. A reviewer will confirm eligibility.
+        faq_id: faq-101
+        created_at: '2026-10-10T18:30:00Z'
+    ReplyList:
+      type: object
+      additionalProperties: false
+      required: [items, total]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/SavedReply'
+        total:
+          type: integer
+          minimum: 0
+      example:
+        items: []
+        total: 0
+    ValidationError:
+      type: object
+      required: [detail]
+      properties:
+        detail:
+          type: array
+          minItems: 1
+          items:
+            type: object
+            required: [loc, msg, type]
+            properties:
+              loc:
+                type: array
+                items:
+                  type: [string, integer]
+              msg:
+                type: string
+              type:
+                type: string
+    NotFoundError:
+      type: object
+      additionalProperties: false
+      required: [detail]
+      properties:
+        detail:
+          type: string

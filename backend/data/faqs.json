@@ -1,0 +1,162 @@
+{
+  "dataset_name": "Northstar Demo Store FAQ Knowledge Base",
+  "version": "2.0.0",
+  "language": "en",
+  "fictional": true,
+  "notice": "All store policies, prices, and service timelines are fictional examples for a course project, not real store commitments. No customer or company data is used.",
+  "faqs": [
+    {
+      "id": "faq-101",
+      "title": "Return Policy",
+      "category": "Returns and refunds",
+      "keywords": [
+        "return policy",
+        "returns policy",
+        "return window",
+        "eligible for return",
+        "returns"
+      ],
+      "answer": "At Northstar Demo Store, unused items in their original packaging can be requested for return within 30 days of delivery. Final-sale items are excluded. Keep your order number and proof of purchase ready. These are fictional demo rules; a support reviewer confirms eligibility."
+    },
+    {
+      "id": "faq-102",
+      "title": "Starting a Return",
+      "category": "Returns and refunds",
+      "keywords": [
+        "return an item",
+        "return my item",
+        "how to return",
+        "start a return",
+        "return process",
+        "send it back"
+      ],
+      "answer": "To request a return at Northstar Demo Store, contact store support with your order number and the item you want to return. Wait for approval and return instructions before sending anything. For eligible change-of-mind returns, the customer pays return shipping. This assistant only drafts a reply; it does not submit or approve a return."
+    },
+    {
+      "id": "faq-103",
+      "title": "Refund Timing",
+      "category": "Returns and refunds",
+      "keywords": [
+        "refund",
+        "refunds",
+        "refund time",
+        "receive my refund",
+        "money back"
+      ],
+      "answer": "For this demo, approved refunds are issued to the original payment method within 5 business days after the returned item is received and inspected. The payment provider may take another 3\u20135 business days to display the credit. A support reviewer must check an individual refund; the assistant cannot access payment status."
+    },
+    {
+      "id": "faq-104",
+      "title": "Exchanges",
+      "category": "Returns and refunds",
+      "keywords": [
+        "exchange",
+        "exchanges",
+        "different size",
+        "different color"
+      ],
+      "answer": "Northstar Demo Store allows exchange requests for unused items in original packaging within 30 days of delivery, excluding final-sale items. Exchanges depend on stock availability. Contact support with your order number and requested size or color. A reviewer must confirm availability and next steps; this assistant cannot reserve an item."
+    },
+    {
+      "id": "faq-105",
+      "title": "Delivery Times",
+      "category": "Shipping",
+      "keywords": [
+        "delivery time",
+        "delivery take",
+        "how long does delivery",
+        "arrive",
+        "shipping time"
+      ],
+      "answer": "For this fictional store, processing takes 1\u20132 business days and standard delivery within the contiguous United States usually takes another 3\u20135 business days after dispatch. Business days are Monday through Friday, excluding public holidays. These are estimates, not guarantees for a specific order."
+    },
+    {
+      "id": "faq-106",
+      "title": "Shipping Costs",
+      "category": "Shipping",
+      "keywords": [
+        "shipping cost",
+        "shipping costs",
+        "shipping fee",
+        "shipping fees",
+        "free shipping",
+        "how much does shipping"
+      ],
+      "answer": "Standard outbound shipping within the contiguous United States costs $5. Demo orders with a merchandise subtotal of at least $50 after discounts and before tax qualify for free standard shipping. Return shipping is separate. These are fictional store prices for the project."
+    },
+    {
+      "id": "faq-107",
+      "title": "Tracking an Order",
+      "category": "Orders",
+      "keywords": [
+        "track",
+        "tracking",
+        "track my order",
+        "where is my order"
+      ],
+      "answer": "After dispatch, Northstar Demo Store sends a shipping confirmation with a tracking link. Check that email and its link for updates. If you cannot find it or the tracking appears incorrect, contact support with your order number. This assistant cannot retrieve live tracking information."
+    },
+    {
+      "id": "faq-108",
+      "title": "Cancelling an Order",
+      "category": "Orders",
+      "keywords": [
+        "cancel",
+        "cancellation",
+        "cancel my order",
+        "cancel an order"
+      ],
+      "answer": "Contact Northstar Demo Store support as soon as possible with your order number to request cancellation. Orders can only be cancelled before dispatch, and a reviewer must confirm the current status. After dispatch, the return policy applies. This assistant does not cancel orders or guarantee that cancellation is possible."
+    },
+    {
+      "id": "faq-109",
+      "title": "Changing a Shipping Address",
+      "category": "Orders",
+      "keywords": [
+        "change my shipping address",
+        "change my address",
+        "shipping address",
+        "wrong address",
+        "change address"
+      ],
+      "answer": "Contact support promptly with your order number to request a shipping-address change. Changes are only possible before dispatch and require review. Share address details through the store support channel, not this public demo. This assistant cannot check order status or change an address."
+    },
+    {
+      "id": "faq-110",
+      "title": "Damaged Items",
+      "category": "Order issues",
+      "keywords": [
+        "damaged",
+        "broken",
+        "arrived damaged",
+        "damage"
+      ],
+      "answer": "If a Northstar Demo Store item arrives damaged, contact support within 7 days of delivery with the order number and photos of the item and packaging. Keep the packaging until support reviews the case. For confirmed damage, the demo store covers any required return shipping and offers a replacement or refund after review. This assistant cannot approve either outcome."
+    },
+    {
+      "id": "faq-111",
+      "title": "Wrong Item Received",
+      "category": "Order issues",
+      "keywords": [
+        "wrong item",
+        "wrong product",
+        "incorrect item",
+        "incorrect product"
+      ],
+      "answer": "If you receive the wrong item, contact support within 7 days of delivery with the order number, the item ordered, and a photo or description of what arrived. For a confirmed fulfilment error, Northstar Demo Store covers any required return shipping and arranges the correct item or a refund after review. Do not send anything back until support provides instructions."
+    },
+    {
+      "id": "faq-112",
+      "title": "International Shipping",
+      "category": "Shipping",
+      "keywords": [
+        "international",
+        "internationally",
+        "outside the us",
+        "outside the united states",
+        "ship abroad"
+      ],
+      "answer": "Northstar Demo Store currently ships only within the contiguous United States. International destinations, Alaska, Hawaii, and US territories are outside the fictional demo delivery area. This FAQ describes a sample policy and does not check delivery eligibility for a real address."
+    }
+  ]
+}

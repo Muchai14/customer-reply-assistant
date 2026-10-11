@@ -1,0 +1,12 @@
+{
+  "scope": "Temporary local test databases only; no user records accessed.",
+  "injected_fault": "DB_PATH parent is a regular file",
+  "observed_startup_error": "FileExistsError",
+  "recovery": "Use a writable directory for DB_PATH; startup and save succeeded.",
+  "save_status": 201,
+  "history_after_restart": {
+    "status": 200,
+    "records": 1,
+    "saved_content_preserved": true
+  }
+}

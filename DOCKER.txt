@@ -1,0 +1,84 @@
+Customer Reply Assistant: Docker setup
+=====================================
+
+Prerequisites
+-------------
+Install and start Docker Desktop, or use Docker Engine with the Compose plugin.
+Run all commands from the project folder containing docker-compose.yml.
+The first build needs internet access to download Python and its dependencies.
+No local Python installation, Node installation, or external API key is required.
+
+Start the complete application
+------------------------------
+
+    docker compose up --build -d
+
+Open http://localhost:8000/ for the webpage.
+Open http://localhost:8000/docs for the interactive API documentation.
+The single app container serves both the frontend and the FastAPI backend.
+SQLite is embedded in the backend; a separate database service is not needed.
+
+If port 8000 is already in use (macOS/Linux shell):
+
+    APP_PORT=8001 docker compose up --build -d
+
+Then open http://localhost:8001/. The host binding is local-only.
+This is local execution, not a cloud deployment.
+
+Check status and logs
+---------------------
+
+    docker compose ps
+    docker compose logs --tail=100 app
+
+The health check verifies that the API can read history from the database.
+The container runs as a non-root user. Initial health checks may take 30 seconds.
+
+Stop or restart
+---------------
+
+    docker compose stop
+    docker compose start
+
+To remove the app container and network while keeping saved replies:
+
+    docker compose down
+
+To start it again:
+
+    docker compose up -d
+
+Saved replies persist in the reply-data named volume mounted at /data.
+An image rebuild or container recreation reuses this volume for the same Compose
+project. A different project name or folder may select a different volume.
+The container database is separate from backend/data/replies.db used by a direct
+Python run. Existing local records are not imported automatically.
+Avoid adding --volumes to the down command unless you intend to erase saved data.
+
+After source changes
+--------------------
+
+    docker compose up --build -d
+
+Source code is copied into the image, not mounted live. Restarting alone does not
+pick up edits. Runtime databases, secrets, caches, and tests are excluded from the
+build context. Requirements for development tests remain in requirements-dev.txt.
+Use backend/RUNNING.txt for local test commands.
+
+Verification status
+-------------------
+Docker Compose configuration validation passed with:
+
+    docker compose config --quiet
+
+The local Docker client was available, but its engine did not respond and the
+Docker Desktop application could not be found. Image build, container startup,
+health check execution, and volume persistence across container recreation have
+not been verified yet. Existing application tests verify SQLite persistence
+outside Docker; they are not a substitute for container checks.
+
+Once the Docker engine is running, finish verification:
+1. Run docker compose up --build -d and check docker compose ps for healthy status.
+2. Open the app and save a fictional reply.
+3. Run docker compose down, then docker compose up -d.
+4. Open history and confirm that the saved reply remains.

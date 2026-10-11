@@ -1,0 +1,16 @@
+.git/
+.venv/
+**/__pycache__/
+**/*.py[cod]
+**/*.db
+**/*.db-shm
+**/*.db-wal
+.env
+.env.*
+**/node_modules/
+backend/tests/
+frontend/tests/
+work/
+outputs/
+*.png
+*.zip
