@@ -57,6 +57,8 @@ paths:
                     draft: ''
                     source: null
                     message: No matching FAQ was found. Please provide more information or write a reply manually.
+        '413':
+          $ref: '#/components/responses/PayloadTooLarge'
         '422':
           $ref: '#/components/responses/ValidationError'
   /api/replies:
@@ -85,6 +87,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SavedReply'
+        '413':
+          $ref: '#/components/responses/PayloadTooLarge'
         '422':
           $ref: '#/components/responses/ValidationError'
     get:
@@ -118,6 +122,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ReplyList'
+        '413':
+          $ref: '#/components/responses/PayloadTooLarge'
         '422':
           $ref: '#/components/responses/ValidationError'
   /api/replies/{id}:
@@ -147,10 +153,25 @@ paths:
                 $ref: '#/components/schemas/NotFoundError'
               example:
                 detail: Reply not found.
+        '413':
+          $ref: '#/components/responses/PayloadTooLarge'
         '422':
           $ref: '#/components/responses/ValidationError'
 components:
   responses:
+    PayloadTooLarge:
+      description: Actual request body exceeds 96 KiB (98,304 bytes), before JSON parsing.
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: false
+            required: [detail]
+            properties:
+              detail:
+                type: string
+          example:
+            detail: Request body exceeds the 96 KiB limit.
     ValidationError:
       description: |
         Malformed JSON, missing fields, invalid values, or an unknown FAQ ID.

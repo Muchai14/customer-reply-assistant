@@ -12,10 +12,11 @@ from fastapi.staticfiles import StaticFiles
 
 from backend.database import ReplyStore
 from backend.postgres import PostgresReplyStore
+from backend.request_limits import RequestBodyLimit, BODY_TOO_LARGE
 from backend.matcher import load_faqs, match_faq
 from backend.models import (
     DraftRequest, DraftResult, MatchedDraft, Source, UnmatchedDraft,
-    SaveReplyRequest, SavedReply, ReplyList, NotFoundError,
+    SaveReplyRequest, SavedReply, ReplyList, NotFoundError, PayloadTooLargeError,
 )
 
 
@@ -46,7 +47,9 @@ def create_app(database_path: Optional[Path] = None, database_url: Optional[str]
         version="0.1.0",
         description="Fictional FAQ demo with draft generation, reviewed reply saving, and persistent history.",
         lifespan=lifespan,
+        responses={413: {"model": PayloadTooLargeError, "description": BODY_TOO_LARGE}},
     )
+    application.add_middleware(RequestBodyLimit)
     application.add_api_route("/api/drafts", generate_draft, methods=["POST"], response_model=DraftResult,
                               operation_id="generateDraft", tags=["Drafts"])
     application.add_api_route("/api/replies", save_reply, methods=["POST"], response_model=SavedReply,

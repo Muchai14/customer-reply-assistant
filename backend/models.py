@@ -64,3 +64,7 @@ class ReplyList(ContractModel):
 
 class NotFoundError(ContractModel):
     detail: str
+
+
+class PayloadTooLargeError(ContractModel):
+    detail: str
