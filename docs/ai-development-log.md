@@ -101,3 +101,14 @@ created a new Python 3.12 environment, installed the documented requirements,
 and ran local tests and an HTTP save/history/restart workflow. No tracked files
 in the clone required edits. Disclosed port, reload, and Node-version differences
 and two skipped PostgreSQL tests in docs/reproducibility.md.
+
+## Module 5 plugin and specialized subagent
+
+After the owner supplied the detailed Module 5 requirements and approved this
+step, invoked the existing review-change workflow and launched a separate
+read-only policy_reviewer with no inherited conversation. Its actual review of
+8a70763..4fca53c and 25 passing tests are saved in docs/evidence/subagent-review.md.
+Created and validated a repository-local plugin using plugin-creator and
+skill-creator, then had that subagent apply the packaged skill manually. Re-ran
+MCP and disposable-hook demonstrations. Student final-diff review is pending;
+no marketplace registration, desktop installation, or human approval is claimed.

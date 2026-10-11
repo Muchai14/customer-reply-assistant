@@ -1,0 +1,20 @@
+{
+  "name": "customer-reply-review",
+  "version": "0.1.0",
+  "description": "Review Customer Reply Assistant API changes with a scoped specialist and evidence checklist.",
+  "author": {
+    "name": "Customer Reply Assistant project"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Customer Reply Review",
+    "shortDescription": "Review API changes and record scoped evidence.",
+    "longDescription": "Packages a reusable review skill and portable specialist instructions for the fictional Customer Reply Assistant project.",
+    "developerName": "Customer Reply Assistant project",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": [
+      "Review this API change using the scoped policy reviewer."
+    ]
+  }
+}

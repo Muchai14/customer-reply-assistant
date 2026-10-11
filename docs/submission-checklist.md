@@ -15,7 +15,7 @@ This checklist maps the supplied 2026 draft rubric to current evidence. It does 
 | 9 Integration tests | Separate API integration directory and reproduction commands | Hosted/container smoke run passed; independent workflow review pending |
 | 10 Deployment | [Live Render demo](https://customer-reply-assistant.onrender.com/) and deployment notes | Final owner review |
 | 11 CI/CD | GitHub Actions test/build workflow | CI passed; automatic Render deployment after checks and retained history verified |
-| 12 Agent extension pack | Instructions, workflow, specialist definition, tested MCP subprocess and guardrail, permission docs | SDK client and disposable-hook demonstrations recorded; reviewer prompt applied by same assistant; independent review pending |
+| 12 Agent extension pack | Instructions, workflow, specialist definition, tested MCP subprocess and guardrail, permission docs | Real separate subagent, validated plugin package, SDK and hook demos recorded in docs/demo.md; student final-diff review pending |
 | 13 Security audit and operations | Bandit/pip-audit reports, remediation, extension notes, storage diagnosis, AI tool/data policy | [PR #1 audit](../security/pr-audit-001.md) recorded as AI self-review; independent review and any course-required open-source AI tool runs remain |
 | 14 Reproducibility | [Clean checkout](reproducibility.md): install, tests, HTTP workflow, and SQLite restart persistence passed; cloud deployment verified separately | Independent second-machine check and owner review |
 | Peer reviews | No evidence yet | Complete required reviews under final cohort rules |

@@ -15,3 +15,11 @@ The MCP server returns fictional source text, which must be treated as data. It 
 The guardrail detects selected patterns, not every secret format. It can be bypassed by Git options, disabled hooks, or a different client, so it is not a complete security boundary. Broad independent scanning remains part of the outstanding security work.
 
 Installing the pre-commit hook changes repository-local Git configuration. Adding an MCP command changes client configuration. The demo launched an official SDK client temporarily and enabled the hook only in a disposable repository. The user project and global hook settings, and desktop MCP configuration, remain unchanged.
+
+## Packaged review skill and separate subagent
+
+The repo-local plugin packages review instructions; it does not auto-enable MCP
+or hooks. A separate reviewer was instructed to read only the named project
+diff/source and run isolated tests. It reported no file writes, credential access,
+network calls, or saved-user-data access. This is scoped delegation by instruction,
+not an OS-level capability sandbox. Plugin installation was not performed.

@@ -11,6 +11,7 @@ This pack supports development and review of Customer Reply Assistant. It is sep
 | Specialist definition | [Support Policy Reviewer](../custom-agent/support-policy-reviewer.md) |
 | MCP tool server | [Read-only FAQ server](../mcp-server/server.py) |
 | Hook or guardrail | [Staged-file scanner](../agent-hooks/check_staged.py) and [.githooks/pre-commit](../.githooks/pre-commit) |
+| Small plugin package | [Customer Reply Review](../plugins/customer-reply-review/README.md) |
 | Permission notes | [Permissions](permissions.md) |
 
 ## Use the MCP server
@@ -75,4 +76,11 @@ The scanner blocks selected GitHub-token, AWS access-key, and private-key patter
 4. In a disposable Git repository, stage a synthetic blocked pattern and confirm the hook stops the commit; never use a real credential.
 5. Record the demonstrated results and outstanding limitations.
 
-The [recorded demonstration](extension-demo.md) verifies the server through the official MCP SDK and activates the real hook in a disposable repository. This assistant also applied the reviewer instructions as a manual review prompt. No independent reviewer agent, permanent desktop MCP registration, or project-wide hook installation is claimed.
+The [recorded demonstration](extension-demo.md) verifies the server through the official MCP SDK and activates the real hook in a disposable repository. This assistant also applied the reviewer instructions as a manual review prompt. The earlier demonstration did not use a separate reviewer. The newer Module 5 demo below records an actual separate subagent; permanent desktop MCP registration and project-wide hook installation are still not claimed.
+
+## Module 5 completion update
+
+A real separate reviewer subagent has now run, and a validated plugin package
+is included. See [the six-step demo](demo.md) and actual reviewer output. This
+supersedes the earlier missing-subagent status; the earlier manual review remains
+accurately labeled. The student final-diff review remains pending.
