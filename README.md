@@ -39,7 +39,7 @@ The app is live at [Customer Reply Assistant](https://customer-reply-assistant.o
 
 See the [submission checklist](docs/submission-checklist.md) for the full draft-rubric mapping.
 
-## CI/CD — evidence for peer review
+## CI/CD
 
 **GitHub Actions checks the code; Render deploys it after those checks pass.**
 The workflow is named **Test and build** in the [Actions tab](https://github.com/Muchai14/customer-reply-assistant/actions).
